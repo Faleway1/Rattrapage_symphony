@@ -1,0 +1,25 @@
+{{ form_start(form) }}
+
+{% if form.vars.submitted and not form.vars.valid %}
+    <div class="alert alert-danger">
+        Merci de corriger les erreurs ci-dessous.
+    </div>
+{% endif %}
+
+{# form_row affiche label + input + erreurs associées #}
+{{ form_row(form.isbn) }}
+{{ form_row(form.title) }}
+{{ form_row(form.summary) }}
+{{ form_row(form.publicationYear) }}
+{{ form_row(form.issueDate) }}
+{{ form_row(form.genres) }}
+{{ form_row(form.authors) }}
+
+{# si cover existe dans ton BookType #}
+{% if form.cover is defined %}
+    {{ form_row(form.cover) }}
+{% endif %}
+
+<button class="btn">{{ button_label|default('Save') }}</button>
+
+{{ form_end(form) }}

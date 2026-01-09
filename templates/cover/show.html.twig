@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cover{% endblock %}
+
+{% block body %}
+    <h1>Cover</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cover.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ cover.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ cover.description }}</td>
+            </tr>
+            <tr>
+                <th>FilePath</th>
+                <td>{{ cover.filePath }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cover_index') }}">back to list</a>
+
+    <a href="{{ path('app_cover_edit', {'id': cover.id}) }}">edit</a>
+
+    {{ include('cover/_delete_form.html.twig') }}
+{% endblock %}

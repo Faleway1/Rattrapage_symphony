@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cover index{% endblock %}
+
+{% block body %}
+    <h1>Cover index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>FilePath</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cover in covers %}
+            <tr>
+                <td>{{ cover.id }}</td>
+                <td>{{ cover.title }}</td>
+                <td>{{ cover.description }}</td>
+                <td>{{ cover.filePath }}</td>
+                <td>
+                    <a href="{{ path('app_cover_show', {'id': cover.id}) }}">show</a>
+                    <a href="{{ path('app_cover_edit', {'id': cover.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cover_new') }}">Create new</a>
+{% endblock %}

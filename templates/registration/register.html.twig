@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <h1>Créer un compte</h1>
+
+    {{ form_start(registrationForm) }}
+
+    {% if registrationForm.vars.submitted and not registrationForm.vars.valid %}
+        <div class="alert alert-danger">
+            Merci de corriger les erreurs ci-dessous.
+        </div>
+    {% endif %}
+
+    {{ form_row(registrationForm.email) }}
+    {{ form_row(registrationForm.lastName) }}
+    {{ form_row(registrationForm.firstName) }}
+    {{ form_row(registrationForm.address) }}
+    {{ form_row(registrationForm.zipCode) }}
+    {{ form_row(registrationForm.birthDate) }}
+    {{ form_row(registrationForm.plainPassword.first) }}
+    {{ form_row(registrationForm.plainPassword.second) }}
+
+    <button class="btn" type="submit">Créer le compte</button>
+
+    {{ form_end(registrationForm) }}
+{% endblock %}

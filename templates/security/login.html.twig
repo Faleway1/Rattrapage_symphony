@@ -1,0 +1,21 @@
+<form method="post">
+    <div>
+        <label>Email</label>
+        <input type="text" name="email" value="{{ last_username }}" required>
+    </div>
+
+    <div>
+        <label>Mot de passe</label>
+        <input type="password" name="password" required>
+    </div>
+
+    <div>
+        <label>
+            <input type="checkbox" name="_remember_me"> Se souvenir de moi
+        </label>
+    </div>
+
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+    <button type="submit">Connexion</button>
+</form>
